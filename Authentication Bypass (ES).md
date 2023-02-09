@@ -1,6 +1,3 @@
-<DOCTYPE! html>
-theme: hacker
-
 Task 1  Brief
 
 openvpn
