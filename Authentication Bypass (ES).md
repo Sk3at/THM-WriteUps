@@ -70,6 +70,8 @@ Con el -fc logramos que nos devuelta un codigo en particular (en este caso, el 2
 ![image](https://user-images.githubusercontent.com/92405961/217768950-9e8e701b-59c3-4bf6-9230-9d0d3ce2b2d9.png)
 
 
+### Task 4 'Logic Flaw'
 
+Un *Logic Flaw, tambien conocido como "fallo logico" se presenta cuando se pasa por alto o manipula la ruta logica de la aplicación. 
 
 
