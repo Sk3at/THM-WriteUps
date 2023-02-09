@@ -1,4 +1,6 @@
-## [Tryhackme](https://tryhackme.com) <img src="https://tryhackme-badges.s3.amazonaws.com/Skr34t.png" alt="TryHackMe">
+<img src="https://tryhackme-badges.s3.amazonaws.com/Skr34t.png" alt="TryHackMe">
+
+## [Tryhackme](https://tryhackme.com) 
 
 
 ## [Authentication Bypass](https://tryhackme.com/room/authenticationbypass)
