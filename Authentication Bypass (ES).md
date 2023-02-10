@@ -69,9 +69,69 @@ Con el -fc logramos que nos devuelta un codigo en particular (en este caso, el 2
 
 ![image](https://user-images.githubusercontent.com/92405961/217768950-9e8e701b-59c3-4bf6-9230-9d0d3ce2b2d9.png)
 
+Una vez chequeadas nuestras credenciales podemos responder la pregunta de la tarea.
+
+![image](https://user-images.githubusercontent.com/92405961/218029624-4c339c75-2d5f-4d1e-9804-a3ef86b6c960.png)
+
 
 ### Task 4 'Logic Flaw'
 
-Un *Logic Flaw, tambien conocido como "fallo logico" se presenta cuando se pasa por alto o manipula la ruta logica de la aplicación. 
+*Un Logic Flaw, tambien conocido como "fallo logico" se presenta cuando se pasa por alto o manipula la ruta logica de la aplicación.*
+
+En esta tarea examinaremos la funcion Reset Password de la web de Acme IT Support. Con fines demostrativos, utilizamos el mail de robert provisto en esta tarea.
+
+![image](https://user-images.githubusercontent.com/92405961/218020447-1f7aaef4-7af1-4505-ae91-4d2c07e00f26.png)
+
+Lo acabamos de realizar desde el navegador web, tambien es posible realizarlo con el comando **curl**
+
+> **curl 'http://10.10.16.24/customers/reset?email=robert%40acmeitsupport.thm' -H 'Content-Type: application/x-www-form-urlencoded' -d 'username=robert'**
+
+*En la logica de la aplicacion de esta web, en la funcion password reset, el mail es enviado usando los datos encontrados en la variable $_REQUEST de PHP.
+
+La mejor forma de explicar la funcionalidad de esto es la siguiente, cuando ingresamos la funcion reset password se nos pide que ingresemos como primer paso un email valido, luego de eso se nos pide un nombre de usuario valido, cuando ingresamos el nombre de usuario y le damos a enviar, la logica de la aplicacion no compara todo el bloque enviado, ya que da por sentado que el bloque anterior (el email) fue exitoso, por lo tanto solo compara el nombre de usuario, lo que nos permite ingresar 'nuestro' mail en su lugar y de esa forma obtener un ticket de reinicio de contraseña para la cuenta del objetivo en nuestra direccion de correo.
+
+**Veamos esto en accion:**
+
+*Primero crearemos una cuenta en la web.
+Luego utilizaremos la herramienta **curl** para 'reforjar' la peticion de password reset y enviar ese ticket a nuestra cuenta recien creada.*
+
+![image](https://user-images.githubusercontent.com/92405961/218025526-15599695-61db-4b77-9019-de1733d090e0.png)
+
+*Dentro de la respuesta a nuestro comando podemos observar lo siguiente:*
+
+![image](https://user-images.githubusercontent.com/92405961/218025717-bf07da43-3d09-4b53-a4ff-16f20ac2cda4.png)
 
 
+Lo que quiere decir que el comando se proceso exitosamente y dentro de nuestra cuenta recien creada deberiamos tener un ticket de soporte para realizar un reseteo de contraseña de la cuenta de robert. *Vamos a chequearlo*
+
+![image](https://user-images.githubusercontent.com/92405961/218025972-b448b847-61a0-4abb-942a-7592d3399256.png)
+
+Efectivamente vemos que se creo un nuevo ticket en nuestra cuenta, si ingresamos en el y seguimos su instruccion (entrar en un link detallado en el ticket), se nos redirigira a la cuenta perteneciente a robert, dentro de su cuenta podemos observar el ticket que creamos y dentro del mismo estara la *flag* de esta tarea.
+
+### Task 5 'Cookie Tampering'
+
+Las cookies muchas veces nos pueden otorgar mejores accesos que los usuarios normales, para ello muchas veces es necesario realizarles un decoding, modificar sus valores y volverlas a ensamblar.
+
+Siguiendo las indicaciones de la tarea enviamos el siguiente comando para obtener la flag de la tarea.
+
+![image](https://user-images.githubusercontent.com/92405961/218028009-cbf96def-4a71-47a9-aaff-44c8b137b702.png)
+
+![image](https://user-images.githubusercontent.com/92405961/218028103-0708a0f9-6837-4a9e-a4b8-07271171a407.png)
+
+Para la segunda pregunta recurrimos a crackstation, lo que nos da la segunda respuesta.
+
+![image](https://user-images.githubusercontent.com/92405961/218028365-649af6a1-5502-422c-bd0a-68e0d11b36f7.png)
+
+![image](https://user-images.githubusercontent.com/92405961/218028402-ccd85bb9-cf5c-45c6-95ca-7d3c954ce8bd.png)
+
+Para la tercera pregunta recurriremos a base64 decode, y asi obtendremos la tercera respuesta.
+
+![image](https://user-images.githubusercontent.com/92405961/218028674-fc664f8c-32b1-477c-a38d-8ecd2a477656.png)
+
+
+Para la cuarta y ultima pregunta de esta sala utilizaremos base64 encode y obtendremos la respuesta.
+
+![image](https://user-images.githubusercontent.com/92405961/218029027-fe13e611-1fae-4f95-8a5f-723f27a8fc52.png)
+
+
+### The End
